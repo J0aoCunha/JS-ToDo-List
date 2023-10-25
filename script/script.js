@@ -46,6 +46,7 @@ const saveToDo = (text) => {
     todoList.appendChild(todos);
 
     inputTodo.value = '';
+    inputTodo.focus();
 };
 
 // Eventos
@@ -57,7 +58,22 @@ form.addEventListener('submit', (e) => {
 
     if (inputValue) {
         saveToDo(inputValue);
-        console.log(inputValue);
     }
 
+})
+
+document.addEventListener('click', (e) => {
+
+    const targetEl = e.target;
+    const parentEl = targetEl.closest("div");
+
+
+    if (targetEl.classList.contains('checkBtn')) {
+        parentEl.classList.toggle('checked-todo');
+        parentEl.classList.toggle('todo');
+    }
+
+    if (targetEl.classList.contains('deleteBtn')) {
+        parentEl.remove();
+    }
 })
