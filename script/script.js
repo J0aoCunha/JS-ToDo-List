@@ -4,6 +4,7 @@ const inputTodo = document.getElementById('todo-input');
 const todoList = document.getElementById('todo-list')
 const checkBtn = document.getElementById('checkBtn')
 const deleteBtn = document.getElementById('deleteBtn')
+const noneTodoSection = document.querySelector('.none-todo');
 // FunÇões
 
 const saveToDo = (text) => {
@@ -44,9 +45,10 @@ const saveToDo = (text) => {
     todos.appendChild(btnDelete);
 
     todoList.appendChild(todos);
-
     inputTodo.value = '';
     inputTodo.focus();
+
+
 };
 
 // Eventos
@@ -58,15 +60,16 @@ form.addEventListener('submit', (e) => {
 
     if (inputValue) {
         saveToDo(inputValue);
+
     }
 
+    updateNoTasksSection()
 })
 
 document.addEventListener('click', (e) => {
 
     const targetEl = e.target;
     const parentEl = targetEl.closest("div");
-
 
     if (targetEl.classList.contains('checkBtn')) {
         parentEl.classList.toggle('checked-todo');
@@ -75,5 +78,21 @@ document.addEventListener('click', (e) => {
 
     if (targetEl.classList.contains('deleteBtn')) {
         parentEl.remove();
+        updateNoTasksSection()
     }
+
 })
+
+function updateNoTasksSection() {
+    const todoItems = document.querySelectorAll('.todo');
+
+    if (noneTodoSection !== null) {
+        if (todoItems.length === 0) {
+            noneTodoSection.classList.remove('hidden');
+            noneTodoSection.classList.add('none-todo');
+        } else {
+            noneTodoSection.classList.add('hidden');
+            noneTodoSection.classList.remove('none-todo');
+        }
+    }
+}

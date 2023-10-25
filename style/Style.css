@@ -269,9 +269,10 @@ main #todo-list .none-todo .content-none p {
     line-height: 140%;
 }
 
-.none {
+.hidden {
     display: none;
 }
+
 
 main #todo-list .todo {
     display: flex;
