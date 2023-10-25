@@ -107,7 +107,7 @@ main .todo-form {
     border: 1px solid var(--Gray-700);
     background: var(--Gray-500);
 
-    color: var(--Gray-300);
+    color: white;
 
     font-size: 1rem;
     font-style: normal;
@@ -125,6 +125,7 @@ main .todo-form {
 
 .todo-form form #todo-input::placeholder {
     transition: color 0.3s;
+    color: var(--Gray-300);
 }
 
 .todo-form form #todo-input:focus::placeholder {
@@ -165,7 +166,7 @@ main .todo-form {
 }
 
 
-main .todo-list {
+main #todo-list {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -175,7 +176,7 @@ main .todo-list {
     gap: 1rem;
 }
 
-main .todo-list .todo-Counter {
+main #todo-list .todo-Counter {
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -183,7 +184,7 @@ main .todo-list .todo-Counter {
 }
 
 
-main .todo-list .todo-Counter .Counter {
+main #todo-list .todo-Counter .Counter {
     display: flex;
     width: 736px;
     height: 19px;
@@ -195,15 +196,15 @@ main .todo-list .todo-Counter .Counter {
 
 }
 
-main .todo-list .todo-Counter .Counter .create-Counter,
-main .todo-list .todo-Counter .Counter .complete-Counter {
+main #todo-list .todo-Counter .Counter .create-Counter,
+main #todo-list .todo-Counter .Counter .complete-Counter {
     display: flex;
     align-items: center;
     gap: 8px;
 
 }
 
-main .todo-list .todo-Counter .Counter h2 {
+main #todo-list .todo-Counter .Counter h2 {
     display: flex;
     padding: 2px 8px;
     flex-direction: column;
@@ -219,7 +220,7 @@ main .todo-list .todo-Counter .Counter h2 {
     color: var(--Gray-200);
 }
 
-main .todo-list .todo-Counter .Counter .create-Counter p {
+main #todo-list .todo-Counter .Counter .create-Counter p {
     color: var(--Blue);
     font-size: 14px;
     font-style: normal;
@@ -227,7 +228,7 @@ main .todo-list .todo-Counter .Counter .create-Counter p {
     line-height: normal;
 }
 
-main .todo-list .todo-Counter .Counter .complete-Counter p {
+main #todo-list .todo-Counter .Counter .complete-Counter p {
     color: var(--Purple);
     font-size: 14px;
     font-style: normal;
@@ -236,7 +237,7 @@ main .todo-list .todo-Counter .Counter .complete-Counter p {
 }
 
 
-main .todo-list .none-todo {
+main #todo-list .none-todo {
     width: 736px;
     display: flex;
     flex-direction: column;
@@ -245,13 +246,13 @@ main .todo-list .none-todo {
     gap: 1rem;
 }
 
-main .todo-list .none-todo img {
+main #todo-list .none-todo img {
     width: 56px;
     height: 56px;
 }
 
 
-main .todo-list .none-todo .content-none p:first-child {
+main #todo-list .none-todo .content-none p:first-child {
     color: var(--Gray-300);
     text-align: center;
     font-size: 1rem;
@@ -260,7 +261,7 @@ main .todo-list .none-todo .content-none p:first-child {
     line-height: 140%;
 }
 
-main .todo-list .none-todo .content-none p {
+main #todo-list .none-todo .content-none p {
     color: var(--Gray-300);
     font-size: 1rem;
     font-style: normal;
@@ -272,7 +273,7 @@ main .todo-list .none-todo .content-none p {
     display: none;
 }
 
-main .todo-list .todo {
+main #todo-list .todo {
     display: flex;
     width: 736px;
     height: 72px;
@@ -287,7 +288,7 @@ main .todo-list .todo {
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
 }
 
-main .todo-list .todo h3 {
+main #todo-list .todo h3 {
     color: var(--Gray-100);
     font-size: 0.875rem;
     font-style: normal;
@@ -296,15 +297,15 @@ main .todo-list .todo h3 {
     text-wrap: wrap;
 }
 
-main .todo-list .todo .content-todo {
+main #todo-list .todo .content-todo {
     width: 632px;
 }
 
-main .todo-list .todo button svg {
+main #todo-list .todo button svg {
     fill: #808080;
 }
 
-main .todo-list .todo button {
+main #todo-list .todo button {
     display: flex;
     width: 1.5rem;
     height: 1.5rem;
@@ -322,12 +323,12 @@ main .todo-list .todo button {
     transition: color 0.3s, background 0.3s;
 }
 
-main .todo-list .todo button:hover {
+main #todo-list .todo button:hover {
     border-radius: 0.25rem;
     background: var(--Gray-400, #333);
 }
 
-main .todo-list .todo button:hover svg {
+main #todo-list .todo button:hover svg {
     fill: #E25858;
 }
 
@@ -339,7 +340,7 @@ main .todo-list .todo button:hover svg {
 }
 
 
-#checkBtn {
+.checkBtn {
     display: none;
 }
 
@@ -362,7 +363,7 @@ main .todo-list .todo button:hover svg {
 }
 
 
-#checkBtn:checked+.custom-checkbox {
+.checkBtn:checked+.custom-checkbox {
     background: #5E60CE;
     border: none;
 
@@ -382,11 +383,11 @@ main .todo-list .todo button:hover svg {
     transition: opacity 0.2s;
 }
 
-#checkBtn:checked+.custom-checkbox::before {
+.checkBtn:checked+.custom-checkbox::before {
     opacity: 1;
 }
 
-#checkBtn:checked+.custom-checkbox:hover {
+.checkBtn:checked+.custom-checkbox:hover {
     filter: brightness(1.2);
 }
 
@@ -403,7 +404,7 @@ main .todo-list .todo button:hover svg {
     background: var(--Gray-500);
 }
 
-main .todo-list .checked-todo h3 {
+main #todo-list .checked-todo h3 {
     color: var(--Gray-300);
     font-size: 0.875rem;
     font-style: normal;
@@ -414,15 +415,15 @@ main .todo-list .checked-todo h3 {
     text-decoration: line-through;
 }
 
-main .todo-list .checked-todo .content-todo {
+main #todo-list .checked-todo .content-todo {
     width: 632px;
 }
 
-main .todo-list .checked-todo button svg {
+main #todo-list .checked-todo button svg {
     fill: #808080;
 }
 
-main .todo-list .checked-todo button {
+main #todo-list .checked-todo button {
     display: flex;
     width: 1.5rem;
     height: 1.5rem;
@@ -440,11 +441,11 @@ main .todo-list .checked-todo button {
     transition: color 0.3s, background 0.3s;
 }
 
-main .todo-list .checked-todo button:hover {
+main #todo-list .checked-todo button:hover {
     border-radius: 0.25rem;
     background: var(--Gray-400, #333);
 }
 
-main .todo-list .checked-todo button:hover svg {
+main #todo-list .checked-todo button:hover svg {
     fill: #E25858;
 }
