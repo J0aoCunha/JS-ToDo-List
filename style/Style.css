@@ -389,3 +389,9 @@ main .todo-list .todo button:hover svg {
 #checkBtn:checked+.custom-checkbox:hover {
     filter: brightness(1.2);
 }
+
+.checked {
+    border: 1px solid var(--Gray-500);
+    color: var(--Gray-300);
+    text-decoration-line: strikethrough;
+}
