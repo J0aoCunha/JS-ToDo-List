@@ -5,9 +5,8 @@ const todoList = document.getElementById('todo-list')
 const checkBtn = document.getElementById('checkBtn')
 const deleteBtn = document.getElementById('deleteBtn')
 const noneTodoSection = document.querySelector('.none-todo');
-const createCounter = document.getElementById('create-Counter');
-// FunÇões
 
+// FunÇões
 const saveToDo = (text) => {
 
     const todos = document.createElement('div');
@@ -53,39 +52,6 @@ const saveToDo = (text) => {
 
 };
 
-// Eventos
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-
-    const inputValue = inputTodo.value;
-
-    if (inputValue) {
-        saveToDo(inputValue);
-
-    }
-
-    updateNoTasksSection()
-})
-
-document.addEventListener('click', (e) => {
-
-    const targetEl = e.target;
-    const parentEl = targetEl.closest("div");
-
-    if (targetEl.classList.contains('checkBtn')) {
-        parentEl.classList.toggle('checked-todo');
-        parentEl.classList.toggle('todo');
-    }
-
-    if (targetEl.classList.contains('deleteBtn')) {
-        parentEl.remove();
-        updateNoTasksSection()
-        updateTaskCount()
-    }
-
-})
-
 function updateNoTasksSection() {
     const todoItems = document.querySelectorAll('.todo');
 
@@ -109,3 +75,49 @@ function updateTaskCount() {
         taskCount.textContent = todoItems.length;
     }
 }
+
+function updateCompletedTaskCount() {
+    const completedTodoItems = document.querySelectorAll('.custom-checkbox-label input[type="checkbox"]:checked');
+    const completedTaskCount = document.getElementById('complete-Counter');
+
+    if (completedTaskCount !== null) {
+        completedTaskCount.textContent = completedTodoItems.length;
+    }
+
+}
+
+
+// Eventos
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+
+    const inputValue = inputTodo.value;
+
+    if (inputValue) {
+        saveToDo(inputValue);
+
+    }
+
+    updateNoTasksSection()
+})
+
+document.addEventListener('click', (e) => {
+
+    const targetEl = e.target;
+    const parentEl = targetEl.closest("div");
+
+    if (targetEl.classList.contains('checkBtn')) {
+        parentEl.classList.toggle('checked-todo');
+        parentEl.classList.toggle('todo');
+        updateCompletedTaskCount()
+    }
+
+    if (targetEl.classList.contains('deleteBtn')) {
+        parentEl.remove();
+        updateNoTasksSection()
+        updateTaskCount()
+        updateCompletedTaskCount()
+    }
+
+})
