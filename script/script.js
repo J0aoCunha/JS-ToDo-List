@@ -5,6 +5,7 @@ const todoList = document.getElementById('todo-list')
 const checkBtn = document.getElementById('checkBtn')
 const deleteBtn = document.getElementById('deleteBtn')
 const noneTodoSection = document.querySelector('.none-todo');
+const createCounter = document.getElementById('create-Counter');
 // FunÇões
 
 const saveToDo = (text) => {
@@ -48,6 +49,7 @@ const saveToDo = (text) => {
     inputTodo.value = '';
     inputTodo.focus();
 
+    updateTaskCount();
 
 };
 
@@ -79,6 +81,7 @@ document.addEventListener('click', (e) => {
     if (targetEl.classList.contains('deleteBtn')) {
         parentEl.remove();
         updateNoTasksSection()
+        updateTaskCount()
     }
 
 })
@@ -94,5 +97,15 @@ function updateNoTasksSection() {
             noneTodoSection.classList.add('hidden');
             noneTodoSection.classList.remove('none-todo');
         }
+    }
+}
+
+
+function updateTaskCount() {
+    const todoItems = document.querySelectorAll('.todo');
+    const taskCount = document.getElementById('create-Counter');
+
+    if (taskCount !== null) {
+        taskCount.textContent = todoItems.length;
     }
 }
