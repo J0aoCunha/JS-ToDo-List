@@ -26,7 +26,7 @@ O aplicativo foi construído utilizando HTML, CSS e JavaScript. Ele permite que 
 
 ## Como Usar
 
-1. abra a [pagina]()
+1. abra a [pagina](https://js-todolist-j0aocunha.netlify.app/)
 
 2. Você pode começar inserindo uma tarefa no campo de entrada e clicando no botão "Criar" ou pressionando Enter.
 
