@@ -34,7 +34,6 @@ header {
     flex-direction: column;
 
     width: 100%;
-    min-width: 1440px;
     height: 12.5rem;
 }
 
@@ -74,7 +73,6 @@ main {
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-width: 1440px;
 
     align-items: flex-start;
     justify-content: center;
@@ -268,11 +266,6 @@ main #todo-list .none-todo .content-none p {
     font-weight: 400;
     line-height: 140%;
 }
-
-.hidden {
-    display: none;
-}
-
 
 main #todo-list .todo {
     display: flex;

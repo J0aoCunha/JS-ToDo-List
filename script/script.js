@@ -54,14 +54,13 @@ const saveToDo = (text) => {
 
 function updateNoTasksSection() {
     const todoItems = document.querySelectorAll('.todo');
+    const noTasksSection = document.querySelector('.none-todo');
 
-    if (noneTodoSection !== null) {
-        if (todoItems.length === 0) {
-            noneTodoSection.classList.remove('hidden');
-            noneTodoSection.classList.add('none-todo');
+    if (noTasksSection !== null) {
+        if (todoItems.length > 0 || completedTodoItems.length > 0) {
+            noTasksSection.style.display = 'none';
         } else {
-            noneTodoSection.classList.add('hidden');
-            noneTodoSection.classList.remove('none-todo');
+            noTasksSection.style.display = 'flex';
         }
     }
 }
@@ -74,6 +73,7 @@ function updateTaskCount() {
     if (taskCount !== null) {
         taskCount.textContent = todoItems.length;
     }
+
 }
 
 function updateCompletedTaskCount() {
@@ -82,6 +82,7 @@ function updateCompletedTaskCount() {
 
     if (completedTaskCount !== null) {
         completedTaskCount.textContent = completedTodoItems.length;
+
     }
 
 }
@@ -116,8 +117,8 @@ document.addEventListener('click', (e) => {
     if (targetEl.classList.contains('deleteBtn')) {
         parentEl.remove();
         updateNoTasksSection()
-        updateTaskCount()
         updateCompletedTaskCount()
+        updateTaskCount()
     }
 
 })
