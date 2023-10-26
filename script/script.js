@@ -55,6 +55,7 @@ const saveToDo = (text) => {
 function updateNoTasksSection() {
     const todoItems = document.querySelectorAll('.todo');
     const noTasksSection = document.querySelector('.none-todo');
+    const completedTodoItems = document.querySelectorAll('.custom-checkbox-label input[type="checkbox"]:checked');
 
     if (noTasksSection !== null) {
         if (todoItems.length > 0 || completedTodoItems.length > 0) {
@@ -82,7 +83,6 @@ function updateCompletedTaskCount() {
 
     if (completedTaskCount !== null) {
         completedTaskCount.textContent = completedTodoItems.length;
-
     }
 
 }
@@ -109,16 +109,23 @@ document.addEventListener('click', (e) => {
     const parentEl = targetEl.closest("div");
 
     if (targetEl.classList.contains('checkBtn')) {
-        parentEl.classList.toggle('checked-todo');
-        parentEl.classList.toggle('todo');
+        parentEl.classList.add('checked-todo');
+
+        if (parentEl.classList.contains('checked-todo')) {
+            parentEl.style.textDecoration = 'line-through';
+            parentEl.style.opacity = '0.7';
+        } else {
+            parentEl.style.textDecoration = 'none';
+            parentEl.style.opacity = '1';
+        }
         updateCompletedTaskCount()
     }
 
     if (targetEl.classList.contains('deleteBtn')) {
         parentEl.remove();
-        updateNoTasksSection()
-        updateCompletedTaskCount()
         updateTaskCount()
+        updateCompletedTaskCount()
+        updateNoTasksSection()
     }
 
 })
