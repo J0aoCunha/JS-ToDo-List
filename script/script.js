@@ -109,14 +109,18 @@ document.addEventListener('click', (e) => {
     const parentEl = targetEl.closest("div");
 
     if (targetEl.classList.contains('checkBtn')) {
-        parentEl.classList.add('checked-todo');
+        parentEl.classList.toggle('checked-todo');
 
         if (parentEl.classList.contains('checked-todo')) {
             parentEl.style.textDecoration = 'line-through';
             parentEl.style.opacity = '0.7';
+            parentEl.style.boxShadow = 'none';
+            parentEl.style.border = 'none';
         } else {
             parentEl.style.textDecoration = 'none';
             parentEl.style.opacity = '1';
+            parentEl.style.boxShadow = '0px 2px 8px 0px rgba(0, 0, 0, 0.06)';
+            parentEl.style.border = ' 1px solid #333';
         }
         updateCompletedTaskCount()
     }
